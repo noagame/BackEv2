@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Formulario de Cliente{% endblock %}
+{% block content %}
+<div class="container">
+    <h2 class="form-title">{{ view.title }}</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_cliente_id">{{ form.cliente_id.label }}</label>
+            {{ form.cliente_id }}
+        </div>
+        <div class="form-group">
+            <label for="id_edad">{{ form.edad.label }}</label>
+            {{ form.edad }}
+        </div>
+        <div class="form-group">
+            <label for="id_genero">{{ form.genero.label }}</label>
+            {{ form.genero }}
+        </div>
+        <div class="form-group">
+            <label for="id_saldo">{{ form.saldo.label }}</label>
+            {{ form.saldo }}
+        </div>
+        <div class="form-group">
+            {{ form.active }}
+            <label for="id_active">{{ form.active.label }}</label>
+        </div>
+        <div class="form-group">
+            <label for="id_nivel_de_satisfaccion">{{ form.nivel_de_satisfaccion.label }}</label>
+            {{ form.nivel_de_satisfaccion }}
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Guardar</button>
+            <a href="{% url 'cliente_list' %}" class="btn-cancel">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
